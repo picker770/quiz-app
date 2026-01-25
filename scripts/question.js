@@ -54,7 +54,7 @@ function loadQuiz () {
 
   if (!questionEl || !a_text || !b_text || !c_text || !d_text) return;
 
-  deselectAnswers();
+  deSelectAnswers();
   const currentQuizData = quizData[currentQuiz];
 
   questionEl.innerText = currentQuizData.question;
@@ -64,7 +64,7 @@ function loadQuiz () {
   d_text.innerText = currentQuizData.d;
 }
 
-function deselectAnswers() {
+function deSelectAnswers() {
   const answerEls = document.querySelectorAll('.answer');
   answerEls.forEach(answerEl => answerEl.checked = false);
 }
@@ -114,4 +114,7 @@ if (typeof document !== 'undefined') {
 
 // Exports for testing
 
-module.exports = { quizData };
+if (typeof module !== 'undefined') {
+     module.exports = { quizData , loadQuiz, deSelectAnswers, getSelected };
+}
+
