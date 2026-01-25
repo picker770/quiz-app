@@ -1,0 +1,80 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Universal reset: ensure consistent box model across all elements */
+
+*{
+    box-sizing: border-box;
+}
+
+/* Body styling for overall page layout */
+body {
+    /* solid background color */
+    background-color: #e1e8df; 
+    font-family: 'Poppins', sans-serif;
+    /* use flexbox for layout */
+    display: flex;
+    /* arrange children vertically */
+    flex-direction: column;
+    /* center children horizontally */
+    align-items: center;
+    /* center children vertically */
+    justify-content: center;
+    /* minimum height of viewport */
+    min-height: 100vh;
+    /* remove default margin */
+    margin: 0;
+    /* adding padding around edges */
+    padding: 1rem;
+}
+
+/* Header Section */
+
+.quiz-header-section {
+    /* Gradient background from purple to dark purple */
+    background: linear-gradient(135deg, #8e44ad 0%, #5e3370 100%);
+    /* White text color */
+    color: white;
+    /* Padding inside header */
+    padding: 1.5rem 1rem;
+    /* Center align text */
+    text-align: center;
+    /* Space below header */
+    margin-bottom: 1.5rem;
+    /* Soft shadow for depth effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Full width */
+    width: 100%; 
+    /* Maximum width for larger screens */
+    max-width: 600px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header content container */
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 10px;
+}
+
+/* Main quiz title */
+.quiz-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Quiz tagline */
+.quiz-tagline {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
