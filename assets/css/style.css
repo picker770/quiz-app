@@ -78,3 +78,79 @@ body {
     margin: 0 auto;
     line-height: 1.4;
 }
+
+/* Quiz Container */
+.quiz-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+    width: 100%;
+    /* Match header width */
+    max-width: 600px;
+    /* Hide overflow content */
+    overflow: hidden;
+}
+
+/* Quiz header inside container */
+.quiz-header {
+    padding: 2rem;
+}
+
+/* Question heading */
+h2 {
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* Remove list styling */
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* List items for answers */
+
+ul li {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+/* Label styling */
+
+ul li label {
+    cursor: pointer;
+}
+
+/* Submit button */
+
+button {
+    background-color: #8e44ad;
+    color: #fff;
+    border: none;
+    /* make button a block element */
+    display: block;
+    width: auto;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: 1rem 2rem;
+    margin: 10px auto;
+    border-radius: 5px;
+    max-width: 200px;
+}
+
+button:hover {
+    outline: none;
+    background-color: #732d91;
+    transform: translateY(-2px); /*gives a lift effect*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; /*smooth transition for all properties*/
+}
+
+/* Focus state for accessibility */
+button:focus {
+    outline: none;
+    background-color: #5e3370; /*Even darker purple for focus*/
+}
