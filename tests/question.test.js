@@ -74,6 +74,113 @@ describe('Quiz Data Structure', () => {
 
 // Question content validation 
 
+describe('Question Content Validation', () => {
+    
+    test('first question should be about JavaScript', () => {
+            const question = quizData[0];
+            expect(question.question).toBe("Which language runs in a web browser?");
+            expect(question.a).toBe("Java");
+            expect(question.b).toBe("C");
+            expect(question.c).toBe("Python");
+            expect(question.d).toBe("JavaScript");
+            expect(question.correct).toBe("d");
+    });
+
+    test('second question should be about CSS', () => {
+        const question = quizData[1];
+        expect(question.question).toBe("What does CSS stand for?");
+        expect(question.a).toBe("Central Style Sheets");
+        expect(question.b).toBe("Cascading Style Sheets");
+        expect(question.c).toBe("Cascading Simple Sheets");
+        expect(question.d).toBe("Counting Style Sheets");
+        expect(question.correct).toBe("b");
+    });
+
+    test('third question should be about HTML', () => {
+        const question = quizData[2];
+        expect(question.question).toBe("What does HTML stand for?");
+        expect(question.a).toBe("Hypertext Markup Language");
+        expect(question.b).toBe("Hypertext Markdown Language");
+        expect(question.c).toBe("Hyperloop Machine Language");
+        expect(question.d).toBe("Highertext Madeup Language");
+        expect(question.correct).toBe("a");
+    });
+
+    test('fourth question should be about JavaScript launch year', () => {
+        const question = quizData[3];
+        expect(question.question).toBe("What year was JavaScript launched?");
+        expect(question.a).toBe("1996");
+        expect(question.b).toBe("1995");
+        expect(question.c).toBe("1994");
+        expect(question.d).toBe("none of the above");
+        expect(question.correct).toBe("b");
+    });
+});
+
+// Answer Checking Logic
+
+describe('Answer Checking Logic', () => {
+     
+    test('should identify correct answers for all questions', () => {
+        const correctAnswers = ['d', 'b', 'a', 'b'];
+        quizData.forEach((question, index) => {
+            expect(question.correct).toBe(correctAnswers[index]);
+        });
+    });
+
+    test('perfect score calculation', () => {
+        const userAnswers = ['d', 'b', 'a', 'b'];
+        let score = 0;
+        quizData.forEach((question, index) => {
+            if(userAnswers[index] === question.correct) score++;
+        });
+        expect(score).toBe(4);
+        expect(score).toBe(quizData.length);
+    });
+    
+    test('partial score calculation', () => {
+        const userAnswers = ['d', 'a', 'c', 'd']; // only first correct
+        let score = 0;
+        quizData.forEach((question, index) => {
+            if(userAnswers[index] === question.correct) score++;
+        });
+        expect(score).toBe(1);
+    });
+
+    test('zero score calculation', () => {
+        const userAnswers = ['a', 'a', 'b', 'c']; // all wrong
+        let score = 0;
+        quizData.forEach((question, index) => {
+            if(userAnswers[index] === question.correct) score++;
+        });
+        expect(score).toBe(0);
+    });    
+});
+
+// Score Display Formatting
+
+describe('Score Display Formatting', () => {
+    
+    test('final score message format', () => {
+        const score = 3;
+        const totalQuestions = quizData.length;
+        const message = `You answered ${score}/${totalQuestions} questions correctly`;
+        expect(message).toBe("You answered 3/4 questions correctly");
+    });
+
+    test('perfect score message', () => {
+        const score = quizData.length;
+        const message = `You answered ${score}/${quizData.length} questions correctly`;
+        expect(message).toBe("You answered 4/4 questions correctly");
+    });
+
+    test('zero score message', () => {
+        const score = 0;
+        const message = `You answered ${score}/${quizData.length} questions correctly`;
+        expect(message).toBe("You answered 0/4 questions correctly");
+    });
+});
+
 describe('Function Tests', () => {
     test('loadQuiz sets question and answers', () => {
         loadQuiz();
