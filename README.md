@@ -43,6 +43,33 @@ The aim of this project is to create **simple, interactive quiz application** th
 
 ---
 
+## Wireframes
 
+ To follow best practices , wireframes are developed for mobile, tablet , and desktop sizes.
 
- 
+ ### Mobile wireframe
+
+ <details>
+ <summary>Click here to see the mobile wireframe</summary>
+
+ - ![screenshot](/assets/docs/wireframes/mobile.png)
+
+ </details>
+
+ ### Tablet wireframe
+
+ <details>
+ <summary>Click here to see the tablet wireframe</summary>
+
+ - ![screenshot](/assets/docs/wireframes/tablet.png)
+
+ </details>
+
+ ### Tablet wireframe
+
+ <details>
+ <summary>Click here to see the desktop wireframe</summary>
+
+ - ![screenshot](/assets/docs/wireframes/desktop.png)
+
+ </details>
