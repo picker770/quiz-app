@@ -35,6 +35,7 @@ describe('Quiz App Tests', () => {
       `;
     });
 
+// Quiz Data Structure Tests
 
 describe('Quiz Data Structure', () => {
     test('quizData exists and is an array', () => {
@@ -47,17 +48,31 @@ describe('Quiz Data Structure', () => {
     });
 
     test('each question has required properties', () => {
-        quizData.forEach(q => {
-              expect(q).toHaveProperty('question');
-              expect(q).toHaveProperty('a');
-              expect(q).toHaveProperty('b');
-              expect(q).toHaveProperty('c');
-              expect(q).toHaveProperty('d');
-              expect(q).toHaveProperty('correct');
-              expect(['a','b','c','d']).toContain(q.correct);
+        quizData.forEach(question => {
+            //    Must have question text and options
+              expect(question).toHaveProperty('question');
+              expect(question).toHaveProperty('a');
+              expect(question).toHaveProperty('b');
+              expect(question).toHaveProperty('c');
+              expect(question).toHaveProperty('d');
+              expect(question).toHaveProperty('correct');
+              expect(['a','b','c','d']).toContain(question.correct);
+
+              // Check types
+              expect(typeof question.question).toBe('string');
+              expect(typeof question.a).toBe('string');
+              expect(typeof question.b).toBe('string');
+              expect(typeof question.c).toBe('string');
+              expect(typeof question.d).toBe('string');
+              expect(typeof question.correct).toBe('string');
+
+              // Correct answer must be one of 'a', 'b', 'c', 'd'
+              expect(['a', 'b', 'c', 'd']).toContain(question.correct);
         });
     });
 });
+
+// Question content validation 
 
 describe('Function Tests', () => {
     test('loadQuiz sets question and answers', () => {
