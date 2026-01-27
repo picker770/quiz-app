@@ -73,3 +73,45 @@ The aim of this project is to create **simple, interactive quiz application** th
  - ![screenshot](/assets/docs/wireframes/desktop.png)
 
  </details>
+
+ ---
+
+ ## Features
+
+ ### Question Data Structure
+
+ - Quiz questions are stored in a JavaScript object using key-value pairs.
+ - Each question contains four possible answers and a defined correct option.
+ - The structure makes it easy to add, remove, or update questions.
+
+ ### Dynamic Question Rendering
+
+ - Questions and answer options are injected into the DOM using JavaScript.
+ - The same HTML structure is reused for each question to keep the markup clean.
+
+ ### Answer Selection
+
+ - Users select answers using radio buttons.
+ - Only one answer can be selected per question.
+
+ ### Score Logic
+
+ - The application tracks the user's score as they progress through the quiz.
+ - The final score is calculated based on correct answers.
+
+ ### Button Interactions
+
+ - A submit button is used to confirm the selected answer.
+ - Visual hover and focus states provide clear feedback for interaction.
+
+ ### Responsive Layout
+
+ - The layout adapts to smaller screens using CSS media queries.
+ - The quiz remains usable on mobile, table, and desktop devices.
+
+ ### Unit Testing with Jest
+
+ - Quiz data is tested to ensure each question includes valid answers.
+ - Tests confirm that correct answers match one of the available options.
+
+ ---
