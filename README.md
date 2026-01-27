@@ -65,7 +65,7 @@ The aim of this project is to create **simple, interactive quiz application** th
 
  </details>
 
- ### Tablet wireframe
+ ### Desktop wireframe
 
  <details>
  <summary>Click here to see the desktop wireframe</summary>
@@ -113,5 +113,52 @@ The aim of this project is to create **simple, interactive quiz application** th
 
  - Quiz data is tested to ensure each question includes valid answers.
  - Tests confirm that correct answers match one of the available options.
+
+ ---
+
+ ## Future Features
+
+ - ### End Screen Summary
+ Add a dedicated results screen showing the user's final score and total questions, with a clear option to restart the quiz.
+
+ - ### Answer Feedback States
+ Highlight correct and incorrect answers after submission using color cues and messages to improve clarity and learning.
+
+ - ### Question Progress Indicator
+ Display the current question number(for example, "Question 2 of 4") so users know their progress.
+
+ - ### Question Randomisation
+ Shuffle questions on each quiz attempt to make replays less predictable.
+
+ - ### Local Storage Support
+ Save the user's last score or best score using browser local storage.
+
+ - ### Accessibility Improvements
+ Improve keyboard navigation , focus states, and screen-reader support to make the quiz more accessible.
+
+ - ### Expanded Question Set
+ Add more questions and categories while keeping the existing data structure intact.
+
+ ---
+
+ ## Tools & Technologies Used
+
+ - [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) - version control.
+ - [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) - repository & hosting.
+ - [![HTML](https://img.shields.io/badge/HTML-grey?logo=html&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) - structure.
+ - [![CSS](https://img.shields.io/badge/CSS-grey?logo=css&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) - styling & layout.
+ - [![JavaScript](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=FD7F1E)](https://en.wikipedia.org/wiki/JavaScript) - quiz logic & interactivity.
+ - [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com) - deployment.
+
+ ---
+
+ ## Testing 
+
+ Automated tests using Jest ensure:
+ - Quiz question objects are structured correctly.
+ - Each quiz entry includes valid correct answer and distractors.
+ - Functions behave as expected when evaluating answers.
+
+ #### For full testing notes, see [question.test.js](/tests/question.test.js)
 
  ---
