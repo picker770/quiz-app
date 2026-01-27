@@ -159,7 +159,7 @@ The aim of this project is to create **simple, interactive quiz application** th
  - Each quiz entry includes valid correct answer and distractors.
  - Functions behave as expected when evaluating answers.
 
- #### For full testing notes, see [question.test.js](/tests/question.test.js)
+ #### For full testing documentation, see [TESTING.md](/TESTING.md)
 
  ---
 
