@@ -73,6 +73,16 @@ I have use the recommended [HTML W3C validator](https://validator.w3.org) to val
 
 ---
 
+## Browser Compatibility
+
+| Browser | Screenshot | Result |
+|---------|------------|--------|
+| Chrome  | ![Chrome](/assets/docs/img/browser-testing/chrome.png)| ✅ Work as expected |
+| Edge    | ![Edge](/assets/docs/img/browser-testing/edge.png)| ✅ Work as expected |
+| Firefox  | ![Firefox](/assets/docs/img/browser-testing/firefox.png)| ✅ Work as expected |
+| Safari  | ![Safari](/assets/docs/img/browser-testing/safari.png)| ✅ Work as expected |
+| Opera  | ![Opera](/assets/docs/img/browser-testing/opera.png)| ✅ Work as expected |
+
 ## Manual Testing
 
 ### Navigation and Flow
@@ -120,4 +130,43 @@ I have use the recommended [HTML W3C validator](https://validator.w3.org) to val
 
  ---
 
- 
+## Bugs and Fixes
+
+### Fixed Bugs
+- **Radio buttons not clearing between questions**
+ - *Issue:* Previously selected answers remained checked when loading a new question.
+ - *Fix:* Implemented deSelectAnswers() inside loadQuiz() to reset all radio buttons.
+
+ - **Returning incorrect values**
+  - *Issue:* getSelected() initially did not handle the case where no option was selected.
+  - *Fix:* Updated logic to return undefined when no radio input is checked.
+
+  ---
+
+  ### Known issues
+  - No persistent score storage(page reload and resets progress)
+  - No ARIA live regions for announcing question changes
+  - No visual feedback fro correct vs incorrect answers
+  - No progress indicator(for example, "Question 2 of 4")
+
+  ---
+
+  ## User Story Testing
+
+  ### New Users
+  - Can understand how to start the quiz ✅
+  - Can select and submit answers ✅
+  - Can view final score clearly ✅
+
+### Returning Users
+ - Can replay quiz using reload button ✅
+ - Can retake quiz without errors ✅
+ - Experience consistent behavior across devices ✅
+
+ ---
+
+ ## Conclusion
+
+ The **Quiz App** functions reliably and meets core project requirements. The application logic is covered by automated testing, user interface behavior has been manually verified, and known limitations are clearly identified for future improvement.
+ This testing approach ensures confidence in both functionality and code quality while leaving room for future enhancements such as accessibility improvements, scoring persistence, and UI feedback.
+
