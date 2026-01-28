@@ -37,16 +37,21 @@ describe('Quiz App Tests', () => {
 
 // Quiz Data Structure Tests
 
+
 describe('Quiz Data Structure', () => {
+
+    // Ensure quiz data exists and its iterable
     test('quizData exists and is an array', () => {
         expect(quizData).toBeDefined();
         expect(Array.isArray(quizData)).toBe(true);
     });
 
+    
+//   Validate expected number of questions
     test('quizData has 4 questions', () => {
         expect(quizData.length).toBe(4);
     });
-
+//  Validate shape and data types of each question object
     test('each question has required properties', () => {
         quizData.forEach(question => {
             //    Must have question text and options
@@ -121,12 +126,15 @@ describe('Question Content Validation', () => {
 
 describe('Answer Checking Logic', () => {
      
+    // Validate correct answers
     test('should identify correct answers for all questions', () => {
         const correctAnswers = ['d', 'b', 'a', 'b'];
         quizData.forEach((question, index) => {
             expect(question.correct).toBe(correctAnswers[index]);
         });
     });
+
+    // Simulate a perfect quiz attempt
 
     test('perfect score calculation', () => {
         const userAnswers = ['d', 'b', 'a', 'b'];
@@ -137,6 +145,8 @@ describe('Answer Checking Logic', () => {
         expect(score).toBe(4);
         expect(score).toBe(quizData.length);
     });
+
+    // Simulate partially correct answers
     
     test('partial score calculation', () => {
         const userAnswers = ['d', 'a', 'c', 'd']; // only first correct
@@ -146,6 +156,8 @@ describe('Answer Checking Logic', () => {
         });
         expect(score).toBe(1);
     });
+
+    // Simulate all incorrect answers
 
     test('zero score calculation', () => {
         const userAnswers = ['a', 'a', 'b', 'c']; // all wrong
@@ -161,6 +173,7 @@ describe('Answer Checking Logic', () => {
 
 describe('Score Display Formatting', () => {
     
+    // Ensure score message follows expected format
     test('final score message format', () => {
         const score = 3;
         const totalQuestions = quizData.length;
@@ -181,6 +194,8 @@ describe('Score Display Formatting', () => {
     });
 });
 
+//  DOM Function Tests
+
 describe('Function Tests', () => {
     test('loadQuiz sets question and answers', () => {
         loadQuiz();
@@ -191,6 +206,8 @@ describe('Function Tests', () => {
         expect(document.getElementById('d_text').innerText).toBe('JavaScript');
     });
 
+    // Ensure radio buttons are reset between questions
+
     test('deSelectAnswers clears all radio buttons', () => {
           const inputs = document.querySelectorAll('.answer');
           inputs.forEach(el => el.checked = true);
@@ -198,6 +215,8 @@ describe('Function Tests', () => {
           inputs.forEach(el => expect(el.checked).toBe(false));
     });
 });
+
+//    Validate selected answer detection
 
   test('getSelected returns selected radio id', () => {
       const inputs = document.querySelectorAll('.answer');
