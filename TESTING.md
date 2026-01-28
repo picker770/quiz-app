@@ -44,3 +44,18 @@ I have use the recommended [HTML W3C validator](https://validator.w3.org) to val
  - Focus states visible on interactive elements
 
  ---
+
+ ## Lighthouse Testing (Chrome DevTools)
+
+ Lighthouse audits were run on the deployed site.
+
+ | Category        | Score | Screenshot |
+ |-----------------|-------|------------|
+ | Performance      | 98%  |![Performance](/assets/docs/lighthouse/performance.png) |
+ | Accessibility    | 97%  |![Accessibility](/assets/docs/lighthouse/accessibility.png) |
+ | Best Practices   | 100% |![Performance](/assets/docs/lighthouse/bestpractices.png) |
+ | SEO              | 100%  |![Performance](/assets/docs/lighthouse/seo.png) |
+
+ *(Scores may vary slightly by device/network.)*
+
+ ---
