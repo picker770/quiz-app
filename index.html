@@ -1,62 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Character encoding fro proper text display -->
-    <meta charset="UTF-8">
-    <!-- Responsive viewport setting for mobile devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Test your knowledge with our interactive Quiz challenge!">
-    <meta name="keywords" content="quiz, knowledge test, challenge, fun quiz, educational quiz, programming quiz">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <!-- link to external CSS -->
-     <link rel="stylesheet" href="assets/css/style.css">
-     <!-- Page title -->
-    <title>Quiz App</title>
+   <!-- Character encoding fro proper text display -->
+   <meta charset="UTF-8">
+   <!-- Responsive viewport setting for mobile devices -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Test your knowledge with our interactive Quiz challenge!">
+   <meta name="keywords" content="quiz, knowledge test, challenge, fun quiz, educational quiz, programming quiz">
+   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+   <!-- link to external CSS -->
+   <link rel="stylesheet" href="assets/css/style.css">
+   <!-- Page title -->
+   <title>Quiz App</title>
 </head>
+
 <body>
-    <!-- Header Section -->
-     <header class="quiz-header-section">
-        <div class="header-content">
-            <!-- Main Quiz title -->
-             <h1 class="quiz-title">Quiz Challenge</h1>
-             <!-- Tagline -->
-              <p class="quiz-tagline">
-                Test your knowledge and see how much you really know!
-              </p>
-        </div>
-     </header>
-
-     <!-- Main Quiz Container -->
-      <div class="quiz-container" id="quiz">
-        <div class="quiz-header">
-            <!-- Question Text placeholder -->
-             <h2 id="question">Question Text</h2>
-             <ul>
-                <!-- Quiz answer options -->
-                 <li>
-                    <input type="radio" name="answer" id="a" class="answer">
-                    <label for="a" id="a_text">Question</label>
-                 </li>
-                 <li>
-                    <input type="radio" name="answer" id="b" class="answer">
-                    <label for="b" id="b_text">Question</label>
-                 </li>
-                 <li>
-                    <input type="radio" name="answer" id="c" class="answer">
-                    <label for="c" id="c_text">Question</label>
-                 </li>
-                 <li>
-                    <input type="radio" name="answer" id="d" class="answer">
-                    <label for="d" id="d_text">Question</label>
-                 </li>
-             </ul>
-        </div>
-
-        <!-- Submit Button -->
-         <button id="submit">Submit</button>
+   <!-- Navigation Bar -->
+   <nav class="navbar">
+      <div class="nav-container">
+         <div class="logo">
+            <a href="home.html">
+               <img src="assets/images/quiz-icon.svg" alt="Quiz App Logo - a purple circle with white question mark"
+                  class="nav-logo">
+               <span class="logo-text">Quiz App</span>
+            </a>
+         </div>
+         <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item"><a href="home.html" class="nav-link"></a>Home</li>
+            <li class="nav-item"><a href="index.html" class="nav-link"></a>Take Quiz</li>
+            <li class="nav-item"><a href="about.html" class="nav-link"></a>About</li>
+         </ul>
+         <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+         </div>
       </div>
-    <script src="scripts/question.js"></script>
+   </nav>
+   <!-- Header Section -->
+   <header class="quiz-header-section">
+      <div class="header-content">
+         <!-- Main Quiz title -->
+         <h1 class="quiz-title">Quiz Challenge</h1>
+         <!-- Tagline -->
+         <p class="quiz-tagline">
+            Test your knowledge and see how much you really know!
+         </p>
+      </div>
+   </header>
+
+   <!-- Main Quiz Container -->
+   <div class="quiz-container" id="quiz">
+      <div class="quiz-header">
+         <!-- Question Text placeholder -->
+         <h2 id="question">Question Text</h2>
+         <ul>
+            <!-- Quiz answer options -->
+            <li>
+               <input type="radio" name="answer" id="a" class="answer">
+               <label for="a" id="a_text">Question</label>
+            </li>
+            <li>
+               <input type="radio" name="answer" id="b" class="answer">
+               <label for="b" id="b_text">Question</label>
+            </li>
+            <li>
+               <input type="radio" name="answer" id="c" class="answer">
+               <label for="c" id="c_text">Question</label>
+            </li>
+            <li>
+               <input type="radio" name="answer" id="d" class="answer">
+               <label for="d" id="d_text">Question</label>
+            </li>
+         </ul>
+      </div>
+
+      <!-- Submit Button -->
+      <button id="submit">Submit</button>
+   </div>
+   <script src="scripts/navigation.js"></script>
+   <script src="scripts/question.js"></script>
 </body>
+
 </html>
