@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Character encoding fro proper text display -->
+    <meta charset="UTF-8">
+    <!-- Responsive viewport setting for mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Test your knowledge with our interactive Quiz challenge!">
+    <meta name="keywords" content="quiz, knowledge test, challenge, fun quiz, educational quiz, programming quiz">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <!-- link to external CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Page title -->
+    <title>Quiz App</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="assets/images/quiz-icon.svg"
+                        alt="Quiz App Logo - a purple circle with white question mark" class="nav-logo">
+                    <span class="logo-text">Quiz App</span>
+                </a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link">Take Quiz</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Header -->
+    <header class="page-header">
+        <h1>About Quiz App</h1>
+        <p>Learn about the project, its purpose, and how it was built</p>
+    </header>
+
+    <!-- Main About Content -->
+    <main class="about-content">
+        <!-- Project Purpose Section -->
+        <section class="mission-section">
+            <h2>Project Purpose</h2>
+            <p>Quiz App was created as a milestone project to demonstrate skill in HTML, CSS and JavaScript. The goal
+                was to
+                build an interactive , accessible, and user-friendly quiz application that works across all devices
+                while
+                following UX best practices adn accessibility guidelines.
+            </p>
+            <p>
+                This project showcases the ability to create dynamic content , handle user interactions, and present
+                information
+                in a clear , structured way.
+            </p>
+        </section>
+
+        <!-- UX Design process section -->
+        <section class="featured-detailed">
+            <h2>UX Design Process</h2>
+            <div class="feature-item">
+                <h3>User-Centered Design</h3>
+                <p><strong>User Needs:</strong> Quick, distraction-free quiz experience without signup requirements.</p>
+                <p><strong>How I addressed this:</strong> Clean interface, no login required, instant
+                    feedback on asnwers.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Accessibility First</h3>
+                <p><strong>Guidelines followed:</strong> WCAG 2.1 AA standards</p>
+                <p><strong>Implementation:</strong> Semantic HTML, keyboard navigation, high contrast colors
+                    (4.5:1 minimum), ARIA labels, focus states, screen reader compatibility.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Visual Design Principles</h3>
+                <p><strong>Consistency:</strong> Same layout styling across all pages.</p>
+                <p><strong>Hierarchy:</strong> Clear visual hierarchy with headings , spacing, and color.</p>
+                <p><strong>Feedback:</strong> Hover effects, button states, score display at end</p>
+                <p><strong>Color Scheme:</strong> Purple (#8e44ad) for primary actions, light gray (#e1e8df) for
+                    background - chosen for contrast and calm learning environment</p>
+            </div>
+            <div class="feature-item">
+                <h3>Information Architecture</h3>
+                <p><strong>Navigation:</strong> Three clear sections - Home (Introduction), Take Quiz (main activity),
+                    About (documentation)</p>
+                <p><strong>User Flow:</strong>Home ➡️ Learn about app ➡️ Take Quiz ➡️ See Results ➡️ Try Again</p>
+            </div>
+        </section>
+
+        <!-- User Stories Section -->
+        <section>
+            <h2>User Stories</h2>
+
+            <h3>New Users</h3>
+            <ul>
+                <li>"As a new user, I want to understand what the app does immediately" - Addressed by home page
+                    hero section</li>
+
+                <li>"As a user, I want to start the quiz quickly without signing up" - One-click access from home
+                    page</li>
+                <li>"As a user , I want clear instructions on how to use the quiz" - Simple inerface with clear
+                    buttons and submit
+                    button
+                </li>
+            </ul>
+
+            <h3>Returning Users</h3>
+            <ul>
+                <li>"As a returning user, I want to see different questions each time" - Answer randomization
+                    implemented</li>
+
+                <li>"As a user, I want to track my progress" - Score displayed at end, can try again to improve </li>
+                <li>"As a mobile user, I want the app to work on my phone" - Fully responsive design with mobile
+                    navigation
+                </li>
+            </ul>
+        </section>
+
+        <!-- Technologies Used -->
+         <section class="technologies-section">
+            <h2>Technologies Used</h2>
+            <ul class="tech-list">
+                <li><strong>HTML5</strong> - Semantic structure, meta tags for SEO, favicon integration</li>
+                <li><strong>CSS3</strong> - Flexbox for layouts, media queries for responsiveness, CSS variables, transitions
+                and animations</li>
+                <li><strong>JavaScript</strong> - DOM manipulation, event handling, quiz logic, answer randomization</li>
+                <li><strong>Jest</strong> - Unit testing for quiz functionality and data structure</li>
+                <li><strong>Git & GitHub</strong> - Version control with meaningful commits</li>
+                <li><strong>GitHub Pages</strong> - Deployment and hosting</li>
+            </ul>
+         </section>
+
+         <!-- Testing Documentation -->
+          <section class="documentation-section">
+            <h2>Testing Approach</h2>
+
+            <h3>Automated Testing (Jest)</h3>
+            <ul>
+                <li>Quiz data structure Validation</li>
+                <li>Score Calculation logic</li>
+                <li>Answer Selection detection</li>
+                <li>DOM updates verification</li>
+            </ul>
+
+            <h3>Manual Testing</h3>
+            <ul>
+                <li>Cross-browser testing (Chrome, Firefox, Safari, Edge)</li>
+                <li>Mobile divice testing (iphone, Android, ipad)</li>
+                <li>keyboard navigation verification</li>
+                <li>Screen reader compatibility</li>
+                <li>Color contrast checking with WAVE tool</li>
+            </ul>
+
+            <h3>Accessibility Testing Results</h3>
+            <ul>
+                <li>Lighthouse Accessibility Score: 100</li>
+                <li>WAVE toolL No errors</li>
+                <li>Color contrast ratio: 7.1:1 (exceeds 4.5:1 requirement)</li>
+                <li>Full keyboard navigable with visible focus states</li>
+            </ul>
+          </section>
+
+          <!-- Future Features -->
+           <section class="future-section">
+            <h2>Future Enhancements</h2>
+            <p>Planned improvements based on user feedback:</p>
+            <ul>
+                <li><strong>Question Categories</strong> - HTML, CSS, JavaScript, Python sections</li>
+                <li><strong>Local Storage</strong> - Save high scores and track progress over time</li>
+                <li><strong>Timed Mode</strong> - Add timer for extra challenge</li>
+                <li><strong>Progress Indicator</strong> - Show question X of Y during quiz</li>
+                <li><strong>External Data Source</strong> - Load Questions from JSON for easy expansion</li>
+                <li><strong>Share Results</strong> - Option to share scores on social media</li>
+            </ul>
+           </section>
+
+           <!-- Contact Contribute -->
+            <section class="contact-section">
+                <h2>Get Involved</h2>
+                <p>This project is open source and contributions are welcome!</p>
+                <p>Visit the <a href="https://github.com/picker770/quiz-app" target="_blank">GitHub repository</a> to:</p>
+                <ul>
+                    <li>Report bugs or issues</li>
+                    <li>Suggest new features</li>
+                    <li>Contribute code improvements</li>
+                    <li>Add more quiz questions</li>
+                </ul>
+                <p style="margin-top: 1rem;">Project by: <strong>Raja</strong> - Code Institute Milestone Project 2</p>
+            </section>
+    </main>
+
+    <!-- Footer -->
+       <footer class="footer">
+        <p>&copy; 2026 Quiz App. All rights reserved.</p>
+        <p>Created as a milestone project for educational purposes.</p>
+        <p><a href="https://github.com/picker770/quiz-app" target="_blank" style="color: white;">View on GitHub</a></p>
+       </footer>
+
+       <!-- Scripts -->
+        <script src="scripts/navigation.js"></script>
+
+</body>
+
+</html>
