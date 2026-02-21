@@ -3,7 +3,7 @@
 
 /* Universal reset: ensure consistent box model across all elements */
 
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -11,7 +11,7 @@
 /* Body styling for overall page layout */
 body {
     /* solid background color */
-    background-color: #e1e8df; 
+    background-color: #e1e8df;
     font-family: 'Poppins', sans-serif;
     /* use flexbox for layout */
     display: flex;
@@ -45,13 +45,14 @@ body {
     /* Soft shadow for depth effect */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     /* Full width */
-    width: 100%; 
+    width: 100%;
     /* Maximum width for larger screens */
     max-width: 600px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 1.5rem;
 }
 
 /* Header content container */
@@ -145,15 +146,18 @@ button {
 button:hover {
     outline: none;
     background-color: #732d91;
-    transform: translateY(-2px); /*gives a lift effect*/
+    transform: translateY(-2px);
+    /*gives a lift effect*/
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease; /*smooth transition for all properties*/
+    transition: all 0.3s ease;
+    /*smooth transition for all properties*/
 }
 
 /* Focus state for accessibility */
 button:focus {
     outline: none;
-    background-color: #5e3370; /*Even darker purple for focus*/
+    background-color: #5e3370;
+    /*Even darker purple for focus*/
 }
 
 /* Responsive styling for tablets and smaller screens */
@@ -206,4 +210,294 @@ button:focus {
         font-size: clamp(0.85rem, 3vw, 1rem);
         max-width: 180px;
     }
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background: linear-gradient(135deg, #8e44ad 0%, #5e3370 100%);
+    color: white;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for navigation links */
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Focus state for keyboard navigation (accessibility) */
+.nav-link:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Active page indicator */
+.nav-link:active {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+}
+
+/* Hamburger menu for mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* Hero section (for home page) */
+.hero-section {
+    background-color: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    color: #5e3370;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: cneter;
+    flex-wrap: wrap;
+}
+
+/* Call to Action buttons */
+.cta-button {
+    display: inline-block;
+    background-color: #8e44ad;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #732d91;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-secondary {
+    background-color: transparent;
+    border: 2px solid #8e44ad;
+    color: #8e44ad;
+}
+
+.cta-secondary:hover {
+    background-color: #8e44ad;
+    color: white;
+}
+
+/* Features Section */
+.features-section {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #5e3370;
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: #5e3370;
+    margin-bottom: 0.5rem;
+}
+
+/* How It Works Section */
+.how-it-works {
+    background-color: #f5f5f5;
+    padding: 3rem 1rem;
+    border-radius: 10px;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.step {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: #8e44ad;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+/* Preview section (shows sample questions) */
+.preview-section {
+    padding: 3rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.preview-card {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+}
+
+.preview-question {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #5e3370;
+    margin-bottom: 1rem;
+}
+
+.preview-options {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.preview-option {
+    background-color: #f0f0f0;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+.preview-option.correct {
+    background-color: #8e44ad;
+    color: white;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 2rem;
 }
