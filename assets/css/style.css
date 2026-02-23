@@ -584,3 +584,67 @@ button:focus {
     margin: 0.5rem 0;
     opacity: 0.8;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    /* Mobile navigation */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: linear-gradient(135deg, #8e44ad 0%, #5e3370 100%);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 2rem 0;
+        gap: 1rem;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 1rem 0;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .nav-logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Responsive typography */
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .steps-container {
+        flex-direction: column;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        padding: 1rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+}
