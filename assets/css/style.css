@@ -160,57 +160,7 @@ button:focus {
     /*Even darker purple for focus*/
 }
 
-/* Responsive styling for tablets and smaller screens */
-@media (max-width: 768px) {
-    body {
-        padding: 0.8rem;
-        justify-content: flex-start;
-    }
 
-    .quiz-header-section {
-        margin-bottom: 1.2rem;
-        padding: 1rem 0.8rem;
-        border-radius: 8px;
-    }
-
-    .quiz-title {
-        font-size: clamp(1.3rem, 4vw, 1.8rem);
-        margin-bottom: 0.4rem;
-    }
-
-    .quiz-tagline {
-        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
-        line-height: 1.3;
-    }
-
-    .quiz-container {
-        border-radius: 8px;
-    }
-
-    .quiz-header {
-        padding: 1.4rem;
-    }
-
-    h2 {
-        font-size: clamp(1rem, 3.5vw, 1.2rem);
-        padding: 0.6rem;
-    }
-
-    ul {
-        margin: 0 0.5rem;
-    }
-
-    ul li {
-        font-size: clamp(0.85rem, 3vw, 1rem);
-        margin: 0.7rem 0;
-    }
-
-    button {
-        padding: 0.75rem 1.4rem;
-        font-size: clamp(0.85rem, 3vw, 1rem);
-        max-width: 180px;
-    }
-}
 
 /* Navigation Bar Styles */
 .navbar {
@@ -287,7 +237,7 @@ button:focus {
 }
 
 /* Active page indicator */
-.nav-link:active {
+.nav-link.active {
     background-color: rgba(255, 255, 255, 0.3);
     font-weight: 600;
 }
@@ -297,6 +247,8 @@ button:focus {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
 }
 
 .bar {
@@ -585,11 +537,18 @@ button:focus {
     opacity: 0.8;
 }
 
+/* Responsive Styles */
+
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
-    /* Mobile navigation */
+    body {
+        padding: 0.5rem;
+        justify-content: flex-start;
+    }
+
+    /* Mobile Navigation */
     .hamburger {
-        display: flex;
+        display: flex !important;
     }
 
     .nav-menu {
@@ -600,10 +559,11 @@ button:focus {
         background: linear-gradient(135deg, #8e44ad 0%, #5e3370 100%);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: 0.3s ease;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
         padding: 2rem 0;
         gap: 1rem;
+        z-index: 999;
     }
 
     .nav-menu.active {
@@ -623,7 +583,57 @@ button:focus {
         height: 30px;
     }
 
-    /* Responsive typography */
+    .nav-container {
+        padding: 0.8rem 1rem;
+    }
+
+    /* Quiz section responsive */
+    .quiz-header-section {
+        margin-bottom: 1.2rem;
+        padding: 1rem 0.8rem;
+        border-radius: 8px;
+    }
+
+    .quiz-title {
+        font-size: clamp(1.3rem, 4vw, 1.8rem);
+        margin-bottom: 0.4rem;
+    }
+
+    .quiz-tagline {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+        line-height: 1.3;
+    }
+
+    .quiz-container {
+        border-radius: 8px;
+    }
+
+    .quiz-header {
+        padding: 1.4rem;
+    }
+
+    h2 {
+        font-size: clamp(1rem, 3.5vw, 1.2rem);
+        padding: 0.6rem;
+    }
+
+    ul {
+        margin: 0 0.5rem;
+    }
+
+    ul li {
+        font-size: clamp(0.85rem, 3vw, 1rem);
+        margin: 0.7rem 0;
+    }
+
+    button {
+        padding: 0.75rem 1.4rem;
+        font-size: clamp(0.85rem, 3vw, 1rem);
+        max-width: 180px;
+    }
+
+
+    /* Home page responsive*/
     .hero-title {
         font-size: 2rem;
     }
@@ -632,19 +642,102 @@ button:focus {
         font-size: 1rem;
     }
 
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
     .steps-container {
         flex-direction: column;
     }
 
+    .step {
+        width: 100%;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* About page responsive */
+
+    
+
     .page-header h1 {
         font-size: 2rem;
+    }
+
+    .page-header {
+        padding: 2rem 1rem;
     }
 
     .about-content {
         padding: 1rem;
     }
 
-    .feature-card {
-        padding: 1.5rem;
+    /* Preview section responsive */
+    .preview-options {
+        flex-direction: column;
+        gap: 0.5rem;
     }
+
+    .preview-option {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .nav-logo {
+        width: 25px;
+        height: 25px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .feature-card {
+        padding: 1.2rem;
+    }
+
+    .step {
+        padding: 1.2rem;
+    }
+}
+
+/* Tablet devices */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-container {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
 }
