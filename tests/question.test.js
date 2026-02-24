@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { quizData, loadQuiz, deSelectAnswers, getSelected } = require('../scripts/question.js');
+const { quizData, loadQuiz, deSelectAnswers, getSelected, showResults } = require('../scripts/question.js');
 
 describe('Quiz App Tests', () => {
     
@@ -48,8 +48,8 @@ describe('Quiz Data Structure', () => {
 
     
 //   Validate expected number of questions
-    test('quizData has 4 questions', () => {
-        expect(quizData.length).toBe(4);
+    test('quizData has 12 questions', () => {
+        expect(quizData.length).toBe(12);
     });
 //  Validate shape and data types of each question object
     test('each question has required properties', () => {
@@ -128,7 +128,7 @@ describe('Answer Checking Logic', () => {
      
     // Validate correct answers
     test('should identify correct answers for all questions', () => {
-        const correctAnswers = ['d', 'b', 'a', 'b'];
+        const correctAnswers = ['d', 'b', 'a', 'b', 'b', 'b', 'a', 'c', 'b', 'b', 'c', 'c'];
         quizData.forEach((question, index) => {
             expect(question.correct).toBe(correctAnswers[index]);
         });
@@ -137,19 +137,18 @@ describe('Answer Checking Logic', () => {
     // Simulate a perfect quiz attempt
 
     test('perfect score calculation', () => {
-        const userAnswers = ['d', 'b', 'a', 'b'];
+        const userAnswers = ['d', 'b', 'a', 'b', 'b', 'b', 'a', 'c', 'b', 'b', 'c', 'c'];
         let score = 0;
         quizData.forEach((question, index) => {
             if(userAnswers[index] === question.correct) score++;
         });
-        expect(score).toBe(4);
         expect(score).toBe(quizData.length);
     });
 
     // Simulate partially correct answers
     
     test('partial score calculation', () => {
-        const userAnswers = ['d', 'a', 'c', 'd']; // only first correct
+        const userAnswers = ['d', 'a', 'c', 'd', 'a', 'c', 'b', 'a', 'c', 'a', 'b', 'a']; // mix of correct/incorrect
         let score = 0;
         quizData.forEach((question, index) => {
             if(userAnswers[index] === question.correct) score++;
@@ -160,7 +159,7 @@ describe('Answer Checking Logic', () => {
     // Simulate all incorrect answers
 
     test('zero score calculation', () => {
-        const userAnswers = ['a', 'a', 'b', 'c']; // all wrong
+        const userAnswers = ['a', 'a', 'b', 'c', 'a', 'a', 'b', 'a', 'a', 'a', 'a', 'a']; // all wrong
         let score = 0;
         quizData.forEach((question, index) => {
             if(userAnswers[index] === question.correct) score++;
@@ -178,19 +177,19 @@ describe('Score Display Formatting', () => {
         const score = 3;
         const totalQuestions = quizData.length;
         const message = `You answered ${score}/${totalQuestions} questions correctly`;
-        expect(message).toBe("You answered 3/4 questions correctly");
+        expect(message).toBe("You answered 3/12 questions correctly");
     });
 
     test('perfect score message', () => {
         const score = quizData.length;
         const message = `You answered ${score}/${quizData.length} questions correctly`;
-        expect(message).toBe("You answered 4/4 questions correctly");
+        expect(message).toBe("You answered 12/12 questions correctly");
     });
 
     test('zero score message', () => {
         const score = 0;
         const message = `You answered ${score}/${quizData.length} questions correctly`;
-        expect(message).toBe("You answered 0/4 questions correctly");
+        expect(message).toBe("You answered 0/12 questions correctly");
     });
 });
 
@@ -226,4 +225,19 @@ describe('Function Tests', () => {
       expect(getSelected()).toBeUndefined();
   });
 
+});
+
+// Test showResults function
+describe('showResults function', () => {
+      test('showResults create result display', () => {
+            // Mock the quiz container
+            const quizDiv = document.getElementById('quiz');
+
+            // Call showResults
+            showResults();
+
+            // Check that innerHTML was updated
+            expect(quizDiv.innerHTML).toContain('Quiz Complete!');
+            expect(quizDiv.innerHTML).toContain('reload-btn');
+      });
 });
