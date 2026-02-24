@@ -1,5 +1,3 @@
-
-
 // Quiz Data
 
 const quizData = [
@@ -13,9 +11,9 @@ const quizData = [
   },
   {
     question: "What does CSS stand for?",
-    a: "Central Style Sheets", 
+    a: "Central Style Sheets",
     b: "Cascading Style Sheets",
-    c: "Cascading Simple Sheets", 
+    c: "Cascading Simple Sheets",
     d: "Counting Style Sheets",
     correct: "b",
   },
@@ -23,7 +21,7 @@ const quizData = [
     question: "What does HTML stand for?",
     a: "Hypertext Markup Language",
     b: "Hypertext Markdown Language",
-    c: "Hyperloop Machine Language", 
+    c: "Hyperloop Machine Language",
     d: "Highertext Madeup Language",
     correct: "a",
   },
@@ -39,7 +37,7 @@ const quizData = [
     question: "Which company developed JavaScript?",
     a: "Microsoft",
     b: "Netscape",
-    c: "Google", 
+    c: "Google",
     d: "Apple",
     correct: "b",
   },
@@ -99,7 +97,6 @@ const quizData = [
     d: "<head>",
     correct: "c",
   },
-
 ];
 
 // Quiz state
@@ -107,21 +104,27 @@ const quizData = [
 let currentQuiz = 0;
 let score = 0;
 
-
 // Functions for quiz
+// Load current quiz question
 
-function loadQuiz () {
-  const questionEl = document.getElementById('question');
-  const a_text = document.getElementById('a_text');
-  const b_text = document.getElementById('b_text');
-  const c_text = document.getElementById('c_text');
-  const d_text = document.getElementById('d_text');
+function loadQuiz() {
+  // Get DOM elements
+  const questionEl = document.getElementById("question");
+  const a_text = document.getElementById("a_text");
+  const b_text = document.getElementById("b_text");
+  const c_text = document.getElementById("c_text");
+  const d_text = document.getElementById("d_text");
 
+  // Safety Check - exit if elements not found
   if (!questionEl || !a_text || !b_text || !c_text || !d_text) return;
 
+  // Clear any selected answers from previous question
   deSelectAnswers();
+
+  // Get current question data
   const currentQuizData = quizData[currentQuiz];
 
+  //Update the DOM with questions and answers
   questionEl.innerText = currentQuizData.question;
   a_text.innerText = currentQuizData.a;
   b_text.innerText = currentQuizData.b;
@@ -129,57 +132,102 @@ function loadQuiz () {
   d_text.innerText = currentQuizData.d;
 }
 
+// Clear all selected radio buttons
 function deSelectAnswers() {
-  const answerEls = document.querySelectorAll('.answer');
-  answerEls.forEach(answerEl => answerEl.checked = false);
+  const answerEls = document.querySelectorAll(".answer");
+  answerEls.forEach((answerEl) => (answerEl.checked = false));
 }
 
-function getSelected() {
-  const answerEls = document.querySelectorAll('.answer');
-  let answer;
-  answerEls.forEach(answerEl => {
-      if (answerEl.checked) answer = answerEl.id;
-  });
+// Get the selected answer and map it back to original opton ID
 
-    return answer;
+function getSelected() {
+  const answerEls = document.querySelectorAll(".answer");
+  let selectedId;
+
+  // Find which radio button is checked
+  answerEls.forEach((answerEl) => {
+    if (answerEl.checked) {
+      selectedId = answerEl.id;
+    }
+  });
+  return selectedId;
+}
+
+// Display final score and reload button
+
+function showResults() {
+  const quiz = document.getElementById("quiz");
+  if (quiz) {
+    const percentage = Math.round((score / quizData.length) * 100);
+    let resultMessage = "";
+
+    // Personalized message based on score
+    if (percentage >= 80) {
+      resultMessage = "Excellent! You really got this! 🎇";
+    } else if (percentage >= 50) {
+      resultMessage = "Good try! Keep practicing more to improve! 👍";
+    } else {
+      resultMessage = "Keep learning! Try again to improve your score! 😎";
+    }
+
+    quiz.innerHTML = `
+           <div class="quiz-header">
+               <h2>Quiz Complete!</h2>
+               <div class="score-display">
+                 <p class="final-score">You answered ${score}/${quizData.length} questions correctly</p>
+                 <p class="score-percentage">${percentage}%</p>
+                 <p class="result-message">${resultMessage}</p>
+               </div>
+               <button onclick="location.reload()" class="reload-btn">Try Again</button>
+               </div>`;
+  }
 }
 
 // Browser Initialization
 
-if (typeof document !== 'undefined') {
-   const quiz = document.getElementById('quiz');
-   const submitBtn = document.getElementById('submit');
+if (typeof document !== "undefined") {
+  const quiz = document.getElementById("quiz");
+  const submitBtn = document.getElementById("submit");
 
-   if (submitBtn) {
-      loadQuiz();
+  if (submitBtn) {
+    // Load First Question
+    loadQuiz();
 
-       submitBtn.addEventListener('click', () => {
-          const answer = getSelected();
+    // Add click event to submit button
+    submitBtn.addEventListener("click", () => {
+      const answer = getSelected();
 
-          if(answer) {
-            if (answer === quizData[currentQuiz].correct) score++;
+      if (answer) {
+        // Check if answer is correct
+        if (answer === quizData[currentQuiz].correct) {
+          score++;
+        }
 
-            currentQuiz++;
+        // Move to next question
+        currentQuiz++;
 
-            if(currentQuiz < quizData.length) {
-                loadQuiz();
-            } else {
-                if(quiz) {
-                    quiz.innerHTML = `
-                    <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-                    <button onclick="location.reload()">Reload</button>
-                    `;
-                }
-            }
-          }
-       });
-   }
-
+        // Load next question or show results
+        if (currentQuiz < quizData.length) {
+          loadQuiz();
+        } else {
+          showResults();
+        }
+      } else {
+        // Alert user if no answer selected
+        alert("Please select an answer before continuing!");
+      }
+    });
+  }
 }
 
-// Exports for testing
+// Exports for Jest testing
 
-if (typeof module !== 'undefined') {
-     module.exports = { quizData , loadQuiz, deSelectAnswers, getSelected };
+if (typeof module !== "undefined") {
+  module.exports = {
+    quizData,
+    loadQuiz,
+    deSelectAnswers,
+    getSelected,
+    showResults,
+  };
 }
-
