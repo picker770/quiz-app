@@ -86,11 +86,12 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
-    width: 100%;
+    width: 90%;
     /* Match header width */
     max-width: 600px;
     /* Hide overflow content */
     overflow: hidden;
+    margin: 2rem auto;
 }
 
 /* Quiz header inside container */
@@ -997,7 +998,8 @@ button:focus {
     }
 
     .quiz-container {
-        max-width: 90%;
+        max-width: 700px;
+        width: 85%;
     }
 
     .step {
