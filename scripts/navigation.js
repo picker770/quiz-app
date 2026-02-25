@@ -29,8 +29,20 @@ document.addEventListener('DOMContentLoaded', function() {
    }
 
    // Set active page in navigation 
-   const currentPage = window.location.pathname.split('/').pop() || 'home.html';
-   const navLinks = document.querySelectorAll('.nav-link');
+//    const currentPage = window.location.pathname.split('/').pop() || 'home.html';
+//    const navLinks = document.querySelectorAll('.nav-link');
+
+    let currentPage = window.location.pathname.split('/').pop();
+
+    if (!currentPage || currentPage === '' || currentPage === 'index.html') {
+        currentPage = 'index.html';
+    }
+
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
 
    // Loop through all navigation links
    navLinks.forEach(link => {
