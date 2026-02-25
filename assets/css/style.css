@@ -884,8 +884,137 @@ button:focus {
     }
 
     .about-content {
-        padding: 1rem;
-        
+        padding: 1rem;        
     }
 
+    .about-content section {
+        padding: 1.5rem;
+    }
+
+    .about-content h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-item p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .tech-list li {
+        font-size: 0.95rem;
+        padding: 0.4rem 0 0.4rem 1.5rem;
+    }
+
+    .not-found {
+        padding: 2rem 1rem;
+        margin: 1rem auto;
+    }
+
+    .not-found h1 {
+        font-size: 4rem;
+    }
+
+    .not-found h2 {
+        font-size: 1.5rem;
+    }
+
+    .redirect-message {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .footer {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+        margin: 0.3rem 0;
+    }
+
+}
+
+/* Small Mobile Devices (under 480px) */
+@media screen and (max-width: 480px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .quiz-title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .nav-link {
+        width: 90%;
+        font-size: 1rem;
+    }
+
+    .feature-card {
+        padding: 1.2rem;
+    }
+
+    .step {
+        padding: 1.2rem;
+    }
+
+    .preview-question {
+        font-size: 1rem;
+    }
+
+    .preview-option {
+        font-size: 0.6rem;
+        padding: 0.9rem;
+    }
+}
+
+/* Tablet Landscape (768px - 1024px) */
+@media screen (min-width: 769px) and (max-width: 1024px) {
+    .nav-container {
+        padding: 0.8rem 1.5rem
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .quiz-title {
+        font-size: 2rem;
+    }
+
+    .quiz-container {
+        max-width: 90%;
+    }
+
+    .step {
+        min-width: 200px;
+    }
+    
+}
+
+/* Larger Screens */
+@media screen and (min-width: 1400px) {
+    .nav-container, 
+    .hero-section, 
+    .features-section, 
+    .quiz-container, 
+    .about-content {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
