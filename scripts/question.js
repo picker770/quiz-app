@@ -138,7 +138,7 @@ function deSelectAnswers() {
   answerEls.forEach((answerEl) => (answerEl.checked = false));
 }
 
-// Get the selected answer and map it back to original opton ID
+// Get the selected answer and map it back to original option ID
 
 function getSelected() {
   const answerEls = document.querySelectorAll(".answer");
