@@ -1,6 +1,6 @@
 # Quiz App
 
-The **Quiz App** is a simple browser-based quiz built with vanilla HTML, CSS , and JavaScript. It presents a set of questions and allows users to answer them and see their performance at the end. The project focuses on clear structure, basic interactivity, and testable quiz logic.
+The **Quiz App** is an interactive, browser-based quiz application built with HTML, CSS, and JavaScript. It presents 12 web development questions and allows users to test their knowledge, receive immediate feedback, and track their progress. The project focuses on accessibility, UX best practices, and clean maintainable code.
 
 ![Mockups](/assets/docs/img/multi-device-website-generator.png)
 
@@ -10,36 +10,49 @@ Source: [Techsini Multi Device Website Mockup Generator](https://techsini.com/mu
 
 ## UX
 
+### Project Purpose
+
 The aim of this project is to create **simple, interactive quiz application** that would:
 
-- Lets users begin answering questions quickly.
-- Offers instant visual feedback after answers(forthcoming).
-- Shows users how they did at the end of the quiz (forthcoming).
-- Works on desktop, tablet, and mobile devices.
+- Lets users begin answering questions quickly without signup
+- Provide clear feedback on quiz performance
+- Work seamlessly on desktop, tablet, and mobile devices
+- Follow accessibility guidelines for all users 
+- Demonstrate clean code structure and testing practices
+
+---
 
 ### Color Scheme
 
-- #e1e8df - Page background(light, soft greenish-gray).
-- #8e44ad - Primary accent (buttons, headers, quiz highlights).
-- #5e3370 - Darker accent for hover and focus states.
-- #732d91 - Hover state for buttons (slightly brighter lift effect).
-- #ffffff - Main content background (quiz container) and text in headers.
-- White text (#ffffff) on purple header gradient for readability.
+- #e1e8df - Page background(light, soft greenish-gray)
+- #8e44ad - Primary accent (buttons, headers, quiz highlights)
+- #5e3370 - Darker accent for hover and focus states
+- #732d91 - Hover state for buttons (slightly brighter lift effect)
+- #ffffff - Main content background and text on purple
+- #333333 - Footer background
+
+### Typography
+
+**Poppins** font family was chosen for its:
+- Excellent readability at various sizes
+- Modern, clean appearance
+- Good web font support
+- Multiple weights for visual hierarchy
 
 ---
 
 ## User Stories
 
 ### New Users
-
-- As a user, I want to start the quickly so I can begin testing my knowledge.
-- As a user, I want clearly labelled questions and answers so I don't get confused.
-- As a user, I want to see my score at the end so I know how well I did.
+- As a user, I want to understand what the app does immediately - *Addressed by home page hero section*
+- As a user, I want to start the quiz quickly without signing up - *One - click access from navigation*
+- As a user, I want clearly labelled questions and answers - *Clean radio button layout*
+- As a user, I want to see my score at the end - *Final score displayed with percentage*
 
 ### Returning Users
-
-- As a user, I want to replay the quiz to improve my score.
-- As a user, I want the app to be responsive so it feels good on phone and laptop screens.
+- As a user, I want to replay the quiz to improve my score - *Reload button to try again*
+- As a user, I want the app to be responsive on all devices - *Fully responsive with mobile navigation*
+- As a user, I want to navigate easily between pages - *Consitent navigation bar on all pages* 
 
 ---
 
@@ -78,41 +91,14 @@ The aim of this project is to create **simple, interactive quiz application** th
 
  ## Features
 
- ### Question Data Structure
+ ### Current Features
 
- - Quiz questions are stored in a JavaScript object using key-value pairs.
- - Each question contains four possible answers and a defined correct option.
- - The structure makes it easy to add, remove, or update questions.
-
- ### Dynamic Question Rendering
-
- - Questions and answer options are injected into the DOM using JavaScript.
- - The same HTML structure is reused for each question to keep the markup clean.
-
- ### Answer Selection
-
- - Users select answers using radio buttons.
- - Only one answer can be selected per question.
-
- ### Score Logic
-
- - The application tracks the user's score as they progress through the quiz.
- - The final score is calculated based on correct answers.
-
- ### Button Interactions
-
- - A submit button is used to confirm the selected answer.
- - Visual hover and focus states provide clear feedback for interaction.
-
- ### Responsive Layout
-
- - The layout adapts to smaller screens using CSS media queries.
- - The quiz remains usable on mobile, table, and desktop devices.
-
- ### Unit Testing with Jest
-
- - Quiz data is tested to ensure each question includes valid answers.
- - Tests confirm that correct answers match one of the available options.
+ #### ✅ Multi-Page Navigation
+ - **Home page** - Introduction , features, and value proposition
+ - **Quiz page** - The interactive quiz with 12 questions
+ - **About page** - Project documentation and UX process
+ - Consistent navigation with active page highlighting
+ - Mobile-responsive hamburger menu with smooth slide animation
 
  ---
 
