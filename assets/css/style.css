@@ -234,6 +234,8 @@ button:focus {
 .nav-logo {
     width: 40px;
     height: 40px;
+    display: block;
+    border-radius: 50%;
 }
 
 .logo-text {
@@ -1084,3 +1086,15 @@ button:focus {
         margin-right: auto;
     }
 }
+
+/* Images styles added  */
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
