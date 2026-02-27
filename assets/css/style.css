@@ -815,6 +815,19 @@ button:focus {
         gap: 0.8rem;
     }
 
+    .hero-image {
+        max-width: 90%;
+        margin-bottom: 1.5rem;
+    }
+
+    .quiz-header-image {
+        width: 60px;
+    }
+
+    .page-header-image {
+        max-width: 80%;
+    }
+
     .cta-button {
         width: 100%;
         max-width: 280px;
@@ -922,6 +935,10 @@ button:focus {
 
     .page-header p {
         font-size: 1rem;
+    }
+
+    .page-header-image {
+        max-width: 90%;
     }
 
     .about-content {
@@ -1041,6 +1058,10 @@ button:focus {
         margin-bottom: 1.2rem;
         line-height: 1.4;
     }
+
+    .page-header-image {
+        max-width: 95%;
+    }
 }
 
 /* Tablet Landscape (768px - 1024px) */
@@ -1096,5 +1117,15 @@ button:focus {
     margin: 0 auto 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.page-header-image {
+    height: auto;
+    display: block;
+    margin: 0 auto 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
 }
 
