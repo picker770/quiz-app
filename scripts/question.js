@@ -103,10 +103,10 @@ const quizData = [
 
 let currentQuiz = 0;
 let score = 0;
+let currentQuestionCorrectAnswer = ""; // Store correct answer for current question
 
 // Functions for quiz
-// Load current quiz question
-
+// Load current quiz question with randomized answers
 function loadQuiz() {
   // Get DOM elements
   const questionEl = document.getElementById("question");
@@ -124,12 +124,37 @@ function loadQuiz() {
   // Get current question data
   const currentQuizData = quizData[currentQuiz];
 
-  //Update the DOM with questions and answers
+  // Store the correct answer for this question
+  currentQuestionCorrectAnswer = currentQuizData.correct;
+
+  // Create array of options with their original IDs
+  const options = [
+    {id: 'a', text: currentQuizData.a, isCorrect: currentQuizData.correct === 'a'},
+    {id: 'b', text: currentQuizData.b, isCorrect: currentQuizData.correct === 'b'},
+    {id: 'c', text: currentQuizData.c, isCorrect: currentQuizData.correct === 'c'},
+    {id: 'd', text: currentQuizData.d, isCorrect: currentQuizData.correct === 'd'}
+  ];
+
+  // Shuffle the array 
+  for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
+  }
+
+  //Update the DOM with randomized answers
   questionEl.innerText = currentQuizData.question;
-  a_text.innerText = currentQuizData.a;
-  b_text.innerText = currentQuizData.b;
-  c_text.innerText = currentQuizData.c;
-  d_text.innerText = currentQuizData.d;
+  a_text.innerText = options[0].text;
+  b_text.innerText = options[1].text;
+  c_text.innerText = options[2].text;
+  d_text.innerText = options[3].text;
+
+  // Store which option IDs are correct for this question
+  window.optionACorrect = options[0].isCorrect;
+  window.optionBCorrect = options[1].isCorrect;
+  window.optionCCorrect = options[2].isCorrect;
+  window.optionDCorrect = options[3].isCorrect;
+
+  console.log("Question loaded. Correct answer should be one of the options.");
 }
 
 // Clear all selected radio buttons
@@ -138,19 +163,29 @@ function deSelectAnswers() {
   answerEls.forEach((answerEl) => (answerEl.checked = false));
 }
 
-// Get the selected answer and map it back to original option ID
+// Get the selected answer and check if it is correct
 
 function getSelected() {
   const answerEls = document.querySelectorAll(".answer");
   let selectedId;
 
   // Find which radio button is checked
-  answerEls.forEach((answerEl) => {
-    if (answerEl.checked) {
-      selectedId = answerEl.id;
+  for (let i = 0; i < answerEls.length; i++) {
+    if (answerEls[i].checked) {
+      const selectedId = answerEls[i].id;
+
+      // Check if the selected option is correct
+      let isCorrect = false;
+      if (selectedId === 'a' && window.optionACorrect) isCorrect = true;
+      else if (selectedId === 'b' && window.optionBCorrect) isCorrect = true;
+      else if (selectedId === 'c' && window.optionCCorrect) isCorrect = true;
+      else if (selectedId === 'd' && window.optionDCorrect) isCorrect = true;
+
+      console.log("Selected:", selectedId, "Is correct:", isCorrect);
+      return {selectedId, isCorrect};
     }
-  });
-  return selectedId;
+  }
+   return null; // Nothing selected
 }
 
 // Display final score and reload button
@@ -195,12 +230,15 @@ if (typeof document !== "undefined") {
 
     // Add click event to submit button
     submitBtn.addEventListener("click", () => {
-      const answer = getSelected();
+      const result = getSelected();
 
-      if (answer) {
+      if (result) {
         // Check if answer is correct
-        if (answer === quizData[currentQuiz].correct) {
+        if (result.isCorrect) {
           score++;
+          console.log("Score increased to:", score);
+        } else {
+          console.log("Wrong answer. store still:", score);
         }
 
         // Move to next question
