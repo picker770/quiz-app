@@ -56,6 +56,26 @@ The aim of this project is to create **simple, interactive quiz application** th
 
 ---
 
+#### Accessibility Needs
+- As a user with visual impairment, I want sufficient color contrast | Colors tested with contrast checker (7.1:1 ratio)
+- As a keyboard user, I want to navigate without a mouse | Full keyboard navigation with visible focus states
+- As s screen reader user , I want semantic HTML | Porper heading structure, ARIA labels, alt text
+
+---
+
+### Design Process
+
+The design followed a **user-centered approach** with these key principles:
+
+| UX Principle  |  Application in Quiz App  |
+|---------------|---------------------------|
+| **Visibility of System Status**  | Users see current question, score up dates in real-time  |
+| **Match with Real World**  | Familiar quiz format with radio buttons and submit button  |
+| **User Control & Freedom**  | Can change answers befor submitting, restart after finishing  |
+| **Consistency & Standards**  | Same layout throughout quiz, consistent navigation across pages  |
+| **Error Prevention**  | Alert if user tries to submit without selecting an answer  |
+| **Recognition vs Recall**  | All options visible at once, no need to memorize previous answers  |
+
 ## Wireframes
 
  To follow best practices , wireframes are developed for mobile, tablet , and desktop sizes.
@@ -99,31 +119,71 @@ The aim of this project is to create **simple, interactive quiz application** th
  - **About page** - Project documentation and UX process
  - Consistent navigation with active page highlighting
  - Mobile-responsive hamburger menu with smooth slide animation
+ - ARIA labels for improved accessibility
+
+ #### ✅ Expanded Question Set
+ - 12 multiple-choice questions on web development fundamentals
+ - Topics include HTML, CSS, and JavaScript
+
+ #### ✅ Answer Randomization
+ - Answers appear in different order each time
+ - Prevents users from memorizing answer positions
+ - Encourages genuine learning
+
+ #### ✅ Interactive Quiz
+ - Dynamic question rendering from JavaScript data structure
+ - Radio button selection with clear visual feedback
+ - Cannot proceed without selecting an answer
+ - Final score displayed with percentage and personalized message
+
+ #### ✅ Score Tracking
+ - Real-time score calculation as users progress
+ - Final score shows correct answers out of 12
+ - Percentage calculated and displayed
+
+ #### ✅ Accessibility Features
+ - Semantic HTML (header, nav, main, section, footer)
+ - Full keyboard navigation with visible focus states
+ - High color contrast
+ - Alt text for all images
+ - ARIA labels on navigation links
+ - Screen reader compatible
+ - Focus indicators on all interactive elements
+
+ #### ✅ Responsive Design
+ - Mobile-first approach with media queries
+ - Flexbox and grid layouts
+ - Touch-friendly button sizes
+ - Optimized for all screen sizes from 320px to 4k
+ - Hamburger menu for mobile devices
+
+ #### ✅ Visual Elements
+ - Logo (quiz-icon.png) with rounder corners
+ - Form validation (must select answer before proceeding)
+ - Graceful fallbacks for missing elements
+ - Console error checking during development
+
+ #### ✅ Unit Testing with Jest
+ - Quiz data structure validation
+ - Score calculation logic testing
+ - Answer selection detection
+ - DOM updates verification
+ - 100% pass rate on all tests
+
 
  ---
 
- ## Future Features
+ ### Future Features
 
- - ### End Screen Summary
- Add a dedicated results screen showing the user's final score and total questions, with a clear option to restart the quiz.
-
- - ### Answer Feedback States
- Highlight correct and incorrect answers after submission using color cues and messages to improve clarity and learning.
-
- - ### Question Progress Indicator
- Display the current question number(for example, "Question 2 of 4") so users know their progress.
-
- - ### Question Randomisation
- Shuffle questions on each quiz attempt to make replays less predictable.
-
- - ### Local Storage Support
- Save the user's last score or best score using browser local storage.
-
- - ### Accessibility Improvements
- Improve keyboard navigation , focus states, and screen-reader support to make the quiz more accessible.
-
- - ### Expanded Question Set
- Add more questions and categories while keeping the existing data structure intact.
+ |Feature | Description | Priority |
+ |--------|-------------|----------|
+ | **Question Categories** | Seperate quizzes for HTML, CSS , JavaScript | High |
+ | **Local Storage** | Save high scores and track progress over time | High |
+ | **Progress Indicator** | Show "Question 5 of 12" during quiz | Medium |
+ |**Answer Feedback** | Highlight correct/incorrect answers after submission | Medium |
+ | **Timed Mode** | Add timer for extra challenge | Low |
+ | **Share Results** | Share scores on social media | Low |
+ | **External Data Source** | Load questions from JSON for easy expansion | Low | 
 
  ---
 
@@ -140,33 +200,106 @@ The aim of this project is to create **simple, interactive quiz application** th
 
  ## Testing 
 
- Automated tests using Jest ensure:
- - Quiz question objects are structured correctly.
- - Each quiz entry includes valid correct answer and distractors.
- - Functions behave as expected when evaluating answers.
+For full testing documentation, including:
+- Code validation (HTML, CSS , JavaScript)
+- Lighthouse audits
+- Responsiveness testing
+- Browser compatibility
+- Manual testing
+- Automated testing with Jest
+- Accessibility testing
+- User story testing
+- **Bugs fixed througout development**
 
- #### For full testing documentation, see [TESTING.md](/TESTING.md)
+ #### For full testing documentation,  please see [TESTING.md](/TESTING.md)
 
  ---
 
 ## Deployment
 
 The app was deployed to **GitHub pages**:
-1. Go to GitHub repo: [Quiz App](https://github.com/picker770/quiz-app).
-2. Navigate to **Settings > Pages**.
-3. Choose the **main branch**, root directory.
-4. Save and refresh - site deployed at:
-   [Live Site](https://picker770.github.io/quiz-app)
+
+### Live Site 
+[https://picker770.github.io/quiz-app/](https://picker770.github.io/quiz-app/)
+
+
+### Deployment Process
+
+1. **Prepare the repository**
+   ```bash
+   git add .
+   git commit - m "Prepare for deployment"
+   git push origin main
+
+2. **configure GitHub Pages**
+ - Go to your GitHub repository: https://github.com/picker770/quiz-app
+ - Click on the settings tab
+ - In the left sidebar, click on Pages
+ - Under "Branch", select:
+    + **Branch**: main
+    + **Floder**: / (root)
+ - Click **Save**
+ - Wait 2 - 3 minutes for deployment
+
+3. **Verify deployment**
+ - Visit https://picker770.github.io/quiz-app/
+ - Test all functionality:
+   + Navigation between pages
+   + Quiz functionality with 12 questions
+   + Responsive design on mobile view
+   + 404 page by visiting invalid URL
+ - Check browser console for errors
+
+4. **Troubleshooting**:
+ - If styles do not load: Check paths are relative (not absolute)
+ - If JavaScript does not work: Verify script paths in HTML
+ - If images do not appear: Confirm file names and paths
+ - Use browser DevTools to debug any issues    
 
 ---
 
-### Cloning
+## Local Development
+
+### Clone the repository
 
 You can clone this repository to create a local copy:
 
+```bash
 git clone "https://github.com/picker770/quiz-app.git"
 
----
+```
+### Navigate to project directory
+
+```bash
+cd quiz-app
+
+```
+
+### Open in browser
+
+Simply open home.html in your preffered browser:
+- Double click the fike, or 
+- Use Live Server in VS Code, or 
+- Run python 
+```bash
+   python -m http.server 
+   ```
+   and visit localhost:8000
+
+### Run tests
+
+```bash
+   npm install
+   npm test
+```
+No build process or dependencies required - the app runs entirely in the browser!
+
+### Cloning
+
+- You can clone this repository to create a local copy:
+```bash
+   git clone https://github.com/picker770/quiz-app.git
+```
 
 ### Forking
 
@@ -178,7 +311,7 @@ You can fork this repository to make a copy under you own GitHub account, allowi
 
 ---
 
-## Credits
+### Credits
 
 Content
 - All quiz structure and logic written by me with the help and guidance of Code Institute LMS content and walkthrough projects including tutorial and examples.
