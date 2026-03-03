@@ -164,10 +164,10 @@ I have use the recommended [HTML W3C validator](https://validator.w3.org) to val
 |Feature  | Step(s)                | Screenshot | Expected | Actual | Pass |
 |---------|------------------------|------------|----------|--------|------|
 |Load Quiz| Open the app in browser|![Load](/assets/docs/img/test-cases/load.png)| Quiz loads with first question | As expected | ✅|
-|Select Answer| Click on one option|![Load](/assets/docs/img/test-cases/select-answer.png)| Option is selected and locked | As expected | ✅|
+|Select Answer| Click on one option|![Load](/assets/docs/img/test-cases/select-answer.png)| Option is selected | As expected | ✅|
 |Submit Answer| Click submit|![Load](/assets/docs/img/test-cases/submit-answer.png)| Answer is processed and next question loads | As expected | ✅|
 |End of Quiz| Answer Last Question|![Load](/assets/docs/img/test-cases/end-of-quiz.png)| Final score displayed with reload option | As expected | ✅|
-|Restart Quiz| Click reload button|![Load](/assets/docs/img/test-cases/load.png)| Quiz resets to first question, score cleared| As expected | ✅|
+|Restart Quiz| Click reload button|![Load](/assets/docs/img/test-cases/load.png)| Quiz resets, score cleared| As expected | ✅|
 
 
 ---
