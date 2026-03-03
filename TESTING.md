@@ -1,8 +1,74 @@
 # Testing - Quiz App
 
-This document outlines the testing carried out for the Quiz Challenge App to ensure correct functionality, layout consistency, accessibility basis, and code reliability.
+This document outlines the testing carried out for the Quiz Challenge App to ensure correct functionality, layout consistency, accessibility basis, and code reliability. Both **automated** and **manual** testing approaches were used throughout development.
 
 ---
+
+## Testing Approach
+
+### Automated Testing
+
+**Framework**: Jest with JSDOM
+
+**Test #Files**: `question.test.js`
+
+**What is tested automatically:**
+- ✅ Quiz data structure validation (12 questions with required properties)
+- ✅ Score calculation logic for perfect, partial, and zero scores
+- ✅ Answer selection detection
+- ✅ DOM updates on quiz load
+- ✅ deSelectAnswers function clears radio buttons
+- ✅ getSelected returns correct answer object
+- ✅ showResults creates proper result display
+
+## Manual Testing
+
+**What is tested manually**
+- ✅ User experience and visual layout
+- ✅ Real-world usage scenarios
+- ✅ Edge cases and unexpected user behavior
+- ✅ Cross-browser and cross-device compatibility
+- ✅ Accessibility with screen readers
+- ✅ Keyboard navigation
+
+---
+
+## What is Testing?
+
+Testing is the process of evaluating a software application to ensure it behaves as expected, meets requirements, and is free from defects. In web development, testing helps verify that code works correctly across different browsers, devices, and user scenarios. Testing improves code quality, reduce bugs, and enhances user experience.
+
+### Types of Testing
+
+#### Unit Testing
+
+**Definition** Unit testing involves testing individual components or functions of the code in isolation to ensure each part works correctly on its own.
+
+**In this project:**
+- Each quiz function is tested independently (`loadQuiz()`, `getSelected()`, `showResults()`)
+- Tests verify that functions return expected outputs for given inputs
+- Jest framework is used to run unit tests automatically
+
+#### Automated Testing
+
+Automated testing uses scripts and testing frameworks to run tests automatically without human intervention. Tests can be run repeatedly, ensuring consistent results and saving time during development.
+
+**In this project**
+- Jest is used for automated JavaScript testing
+- Tests run with a single command: `npm test`
+
+#### Manual Testing
+
+Manual testing involves a human interacting with the application to verify functionality, usability, and visual appearance. It tests real-world scenarios that automated tests might miss.
+
+**In this project**
+- Visual layout
+  + Appearance on different screen sizes
+- User Experience
+  + Ease of navigation and interaction 
+- Browser Compatibility
+  + Chrome, Firefox, Safari, Edge, Opera
+- Device Testing
+  + Mobile, tablet, desktop
 
 ## Code Validation
 
@@ -83,17 +149,6 @@ I have use the recommended [HTML W3C validator](https://validator.w3.org) to val
 | Safari  | ![Safari](/assets/docs/img/browser-testing/safari.png)| ✅ Work as expected |
 | Opera  | ![Opera](/assets/docs/img/browser-testing/opera.png)| ✅ Work as expected |
 
-## Manual Testing
-
-### Navigation and Flow
-
- - Quiz loads automatically on page load
- - Clicking Submit without selecting an answer does nothing
- - Selecting an answer and submitting:
-   - Advances to the next question
-   - Increments score if correct
-- Final screen shows score and reload button
-- Reload button resets the quiz
 
 ### Quiz Behavior
 
@@ -132,36 +187,65 @@ I have use the recommended [HTML W3C validator](https://validator.w3.org) to val
 
 ## Bugs and Fixes
 
-### Fixed Bugs
-- **Radio buttons not clearing between questions**
- - *Issue:* Previously selected answers remained checked when loading a new question.
- - *Fix:* Implemented deSelectAnswers() inside loadQuiz() to reset all radio buttons.
+### Bugs Fixed
+Throughout development, several bugs were identified and fixed:
 
- - **Returning incorrect values**
-  - *Issue:* getSelected() initially did not handle the case where no option was selected.
-  - *Fix:* Updated logic to return undefined when no radio input is checked.
+| Bug | Description | Fix |
+|-----|-------------|-----|
+| **Radio Buttons not clearing** | Previously selected answered remained checked when loading a new question | Implemented `deSelectAnswers()` inside `loadQuiz()` to reset all radio buttons |
+| **getSelected returning incorrect values** | Function did not handle case where where no option was selected | Update logic to return null when no radio input is checked |
+| **Score Calculation bug** | Quiz showed wrong score (e.g., 3/12 when all answers correct) | Fixed answer mapping logic to properly track correct answers after randomization |
+| **Hamburger menu not working** | Mobile menu would not open when clicking hamburger icon | Fixed JavaScript event listeners and CSS transitions |
+| **No 404 page** | Users saw GitHub's default error page | Created custom 404.html with auto-direct to homepage |
+| **Only 4 questions** | Limited content for users | Expanded question set from 4 to 12 questions |
+| **Missing Navigation** | No way to navigate between pages | Add navbar with home, quiz, and about pages |
+| **Active page not highlighted** | Users did not know which page they were on | Added active state styling to navigation links with JavaScript |
+| **Jest test syntax error** | Test failed due to missing closing slash in regex pattern | Added missing `/` and corrected regex pattern in `question.test.js` |
+| **Logo not rounded** | Navigation logo had sharp edges | Added `border-radius: 50%` to nav-logo class |
+| **Images missing** | Site had no visual elements | Added hero image, about image, and logo |
+| **Responsive issues on small devices** | Text too small on 320px screens | Added additional media query for under 480px |
+| **ARIA labels missing** | SEO warning for links without descriptive text | Added aria-label to all navigation links |
 
-  ---
+## Known Issues
 
-  ### Known issues
-  - No persistent score storage(page reload and resets progress)
-  - No ARIA live regions for announcing question changes
-  - No visual feedback fro correct vs incorrect answers
-  - No progress indicator(for example, "Question 2 of 4")
+The following issues are acknowledged and will be addressed in futute updates:
 
-  ---
+| Issue | Description | Planned Fix |
+|-------|-------------|-------------|
+| **No persistent score storage** | Page reloads resets progress | Implement local storage for high scores |
+| **No ARIA live regions** | Screen readers do not announce question changes | Add ARIA live regions for dynamic content |
+| **No visual feedback for correct/incorrect answers** | Users do not know if answer was right untill the end | Add color-coded feedback after each submission |
+| **No progress indicator** | Users do not know which question they are on | Add "Question X of 12" indicator |
+| **Limited question test** | Only 12 questions available | Expand to multiple categories with external JSON |
+
+
 
   ## User Story Testing
 
   ### New Users
-  - Can understand how to start the quiz ✅
-  - Can select and submit answers ✅
-  - Can view final score clearly ✅
 
-### Returning Users
- - Can replay quiz using reload button ✅
- - Can retake quiz without errors ✅
- - Experience consistent behavior across devices ✅
+  | User story | Test | Result |
+  |------------|------|--------|
+  | I want to understand what the app does immediately | View home page hero section | ✅ Clear explanation of app purpose |
+  | I want to start the quiz quickly without signing up | Click start Quiz button | ✅ Immediate access, no login |
+  | I want clearly labelled questions and answers | Take quiz | ✅ Radio buttons clearly labelled |
+  | I want to see my score at the end | Complete quiz | ✅ Score with percentage displayed |
+
+  ### Returning Users 
+  | User Story | Test | Result |
+  |------------|------|--------|
+  | I want to replay the quiz to improve my score | Click reload button | ✅ Quiz restarts immediately |
+  | I want to see different question orders each time | Take quiz multiple times | ✅ Answers randomized each time |
+  | I want the app to be responsive on all devices | Test on phone, tablet, desktop | ✅ Works perfectly on all devices |
+  | I want to navigate easily between pages | Use navigation bar | ✅ Consistent nav on all pages |
+
+  ### Accessibility Needs
+
+  | User Story | Test | Result |
+  |------------|------|--------|
+  | I want sufficient color contrast | Check with contrast tool | ✅ 7.1:1 ratio |
+  | I want to navigate without a mouse | Use keyboard only | ✅ Full keyboard navigation |
+
 
  ---
 
